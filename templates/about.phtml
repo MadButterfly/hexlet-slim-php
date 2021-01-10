@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Шаблонизация</title>
+</head>
+
+<body>
+    <h2>Самостоятельная работа</h2>
+        <ol>
+            <li>
+                <p>Подключите к вашему проекту, созданному в предыдущем уроке, пакет <a href="https://github.com/slimphp/PHP-View" target="_blank" rel="nofollow">PHP-View</a> в соответствии с <a href="https://github.com/slimphp/PHP-View#usage-with-any-psr-7-project" target="_blank" rel="nofollow">документацией</a>(!). В начале файла <code>public/index.php</code> определите псевдоним для работы с пакетом:</p>
+                <pre class="hljs"><code class="php">    <span style="color: #999999;font-weight: bold">&lt;?php</span>
+
+    <span style="color: #000000;font-weight: bold">use</span> <span style="color: #445588;font-weight: bold">Slim\Views\PhpRenderer</span><span style="background-color: #f8f8f8">;</span>
+</code></pre>
+            </li>
+            <li>
+                <p>Создайте директорию <code>templates</code> в корне проекта.</p>
+            </li>
+            <li>
+                <p>Добавьте обработчик в файл <code>public/index.php</code>:</p>
+                <pre class="hljs"><code class="php">    <span style="color: #999999;font-weight: bold">&lt;?php</span>
+
+    <span style="color: #008080">$app</span><span style="color: #000000;font-weight: bold">-&gt;</span><span style="color: #990000;font-weight: bold">get</span><span style="background-color: #f8f8f8">(</span><span style="color: #d14">'/about'</span><span style="background-color: #f8f8f8">,</span> <span style="color: #000000;font-weight: bold">function</span> <span style="background-color: #f8f8f8">(</span><span style="color: #008080">$request</span><span style="background-color: #f8f8f8">,</span> <span style="color: #008080">$response</span><span style="background-color: #f8f8f8">)</span> <span style="background-color: #f8f8f8">{</span>
+        <span style="color: #008080">$phpView</span> <span style="color: #000000;font-weight: bold">=</span> <span style="color: #000000;font-weight: bold">new</span> <span style="color: #445588;font-weight: bold">PhpRenderer</span><span style="background-color: #f8f8f8">(</span><span style="color: #d14">'../templates'</span><span style="background-color: #f8f8f8">);</span>
+        <span style="color: #000000;font-weight: bold">return</span> <span style="color: #008080">$phpView</span><span style="color: #000000;font-weight: bold">-&gt;</span><span style="color: #990000;font-weight: bold">render</span><span style="background-color: #f8f8f8">(</span><span style="color: #008080">$response</span><span style="background-color: #f8f8f8">,</span> <span style="color: #d14">'about.phtml'</span><span style="background-color: #f8f8f8">);</span>
+    <span style="background-color: #f8f8f8">});</span>
+</code></pre>
+            </li>
+            <li>
+                <p>Создайте файл <code>templates/about.phtml</code>. Добавьте туда любой html-код.</p>
+            </li>
+            <li>
+                <p>Запустите проект по аналогии как в предыдущем уроке, и откройте в браузере страницу <code>http://localhost:5555/about</code>.</p>
+            </li>
+        </ol>
+</body>
+
+</html>
